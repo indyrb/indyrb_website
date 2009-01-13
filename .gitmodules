@@ -1,0 +1,3 @@
+[submodule "stylesheets/gutterless_blueprint_css"]
+	path = stylesheets/gutterless_blueprint_css
+	url = git@github.com:bilson/gutterless_blueprint_css.git
