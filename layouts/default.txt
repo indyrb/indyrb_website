@@ -2,57 +2,111 @@
 extension: html
 filter:    erb
 ---
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title><%= @page.title %></title>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title><%= @page.title %></title>
-   <meta name="author" content="<%= @page.author %>" />
+    <script type="text/javascript" src="javascripts/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="javascripts/formatdate.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.twitter.js"></script>
+    <script type="text/javascript">
+      // on page load complete, fire off a jQuery json-p query
+      // against Google web search
+      $(document).ready(function(){
 
-   <!--- Blueprint CSS Framework -->
-   <link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection" />
-   <link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print" />
+        $("#twitter").getTwitter({
+          userName: "indyrb",
+          numTweets: 5,
+          loaderText: "Loading tweets...",
+          slideIn: false,
+          showHeading: false,
+          headingText: "Latest Tweets",
+          showProfileLink: false
+        });
 
-   <!-- CodeRay syntax highlighting CSS -->
-   <link rel="stylesheet" href="/css/coderay.css" type="text/css" />
+        $.getJSON("http://api.meetup.com/events.json/?topic=ruby&groupnum=89&key=6a7801841e16295e1e722e254370&callback=?",
+        function (data) {
+          nextMeetup = data.results[0];
+          $('#next_meetup_name').html(nextMeetup.name);
+          date = new Date(nextMeetup.time)
+          $('#next_meetup_date').html(date.formatDate('l, F j'));
+          // $('#next_meetup_time').html(date.formatDate('g:i a'));
+          $('#next_meetup_rsvpcount').html(nextMeetup.rsvpcount);
+          $('.next_meetup_event_url').attr('href', nextMeetup.event_url)
+        });
 
-   <!-- Homepage CSS -->
-   <link rel="stylesheet" href="/css/site.css" type="text/css" media="screen, projection" />
-</head>
-<body>
+        $.getJSON("http://api.meetup.com/members.json/?topic=ruby&groupnum=89&key=6a7801841e16295e1e722e254370&callback=?",
+        function (data) {
+          members = data.results;
+          $.each(members, function() {
+              $("#members ul").append('<li><a href="'+this.link+'" target="_blank">'+this.name+' ('+this.city+')</li>')
+            }
+          )
 
-<div class="container">
+        });
+        // FriendFeed room feed
+        $.getJSON("http://friendfeed.com/api/feed/room/indyrb?format=json&num=5&callback=?",
+        function(data) {
+          $.each(data.entries, function() {
+            $("#friendfeed ul").append('<li><a href="' + this.link + '">' + this.title + '</a><br /><p>by ' + this.user.name + '</li>');
+          });
+        });
 
-   <div class="column span-20 prepend-2 append-2 first last" id="header">
-     <p class="title">A New Website</p>
-     <hr>
-   </div>
 
-   <div class="column span-15 prepend-2 first">
-      <%= @content %>
-   </div>
+      });
 
-   <div class="column span-5 append-2 last">
-      <h4>Sidebar</h4>
-      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue. </p>
+    </script>
 
+    <link rel="stylesheet" href="css/gutterless_blueprint_css/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="css/gutterless_blueprint_css/gutterless.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="css/gutterless_blueprint_css/print.css" type="text/css" media="print">
+    <!--[if IE]>
+      <link rel="stylesheet" href="css/gutterless_blueprint_css/ie.css" type="text/css" media="screen, projection">
+    <![endif]-->
+
+    <link rel="stylesheet" href="css/jquery.twitter.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="css/application.css" type="text/css" media="screen, projection, print">
+  </head>
+  <body>
+
+    <div class="container">
       <div class="box">
-         <p class="last">Mauris a lectus. Aliquam erat volutpat. Phasellus ultrices mi a sapien. Nunc rutrum egestas lorem. Duis ac sem sagittis elit tincidunt gravida.</p>
+
+        <div id="header" class="span-56">
+          <img src="images/indyrb_logo.png" alt="Indyrb.org">
+        </div>
+        <div class="span-56">
+          <div id="tagline">A group that meets once a month to chat about Ruby on Rails and the Ruby programming language.</div>
+        </div>
+
+        <div class="span-56">
+          <div id="signup" class="success"><a href="http://ruby.meetup.com/89/">Join Now.</a> (it's free)</div>
+        </div>
+
+
+        <div id="main_content" class="span-30">
+          <%= @content %>
+        </div>
+
+        <div id="sidebar" class="span-26">
+          <div id="members" class="box border-left top">
+            <h2 class="bottom">Our Rubyists</h3>
+            <ul>
+            </ul>
+          </div>
+        </div>
+
       </div>
 
-      <p class="quiet">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue.</p>
+      <div id="footer" class="span-60">
+        <div class="box-1">
+          &copy; 2008 The Indianapolis Ruby Brigade
+        </div>
+      </div>
+    </div>
 
-      <h5>Incremental leading</h5>
-      <p class="incr">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue. sed aliquet vehicula, lectus tellus.</p>
-   </div>
-
-   <div class="column span-20 prepend-2 append-2 first last" id="footer">
-     <hr />
-     <p>This website was created with <a href="http://webby.rubyforge.org">Webby</a></p>
-   </div>
-
-</div>
-</body>
+  </body>
 </html>
