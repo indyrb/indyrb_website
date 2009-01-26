@@ -47,7 +47,7 @@
         $.getJSON("http://friendfeed.com/api/feed/room/indyrb?format=json&num=5&callback=?",
         function(data) {
           $.each(data.entries, function() {
-            $("#friendfeed ul").append('<li><a href="' + this.link + '">' + this.title + '</a><br /><p>by ' + this.user.name + '</li>');
+            $("#friendfeed ul").append('<li><a href="' + this.link + '">' + this.title + '</a><br /><p class="bottom">by ' + this.user.name + '</li>');
           });
         });
 
@@ -150,7 +150,6 @@ twitter.com/indyrb
 The Indy.rb Room
 </h2>
 Find news, submit news, comment on news, or just chat with Indy.rb-ers in <a href="http://friendfeed.com/rooms/indyrb">our FriendFeed room</a>
-<br />
 <br />
 <div id='friendfeed'>
     <ul></ul>
