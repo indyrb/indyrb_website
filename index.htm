@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />  
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 
 
     <script src="javascripts/jquery-1.2.6.js"></script>
@@ -11,19 +11,18 @@
     <script>
       // on page load complete, fire off a jQuery json-p query
       // against Google web search
-      $(document).ready(function(){        
-
+      $(document).ready(function(){
 
         $("#twitter").getTwitter({
-      		userName: "indyrb",
-      		numTweets: 5,
-      		loaderText: "Loading tweets...",
-      		slideIn: false,
-      		showHeading: false,
-      		headingText: "Latest Tweets",
-      		showProfileLink: false
-      	});
-      	
+          userName: "indyrb",
+          numTweets: 5,
+          loaderText: "Loading tweets...",
+          slideIn: false,
+          showHeading: false,
+          headingText: "Latest Tweets",
+          showProfileLink: false
+        });
+
         $.getJSON("http://api.meetup.com/events.json/?topic=ruby&groupnum=89&key=6a7801841e16295e1e722e254370&callback=?",
         function (data) {
           nextMeetup = data.results[0];
@@ -33,8 +32,8 @@
           // $('#next_meetup_time').html(date.formatDate('g:i a'));
           $('#next_meetup_rsvpcount').html(nextMeetup.rsvpcount);
           $('.next_meetup_event_url').attr('href', nextMeetup.event_url)
-        }); 
-          
+        });
+
         $.getJSON("http://api.meetup.com/members.json/?topic=ruby&groupnum=89&key=6a7801841e16295e1e722e254370&callback=?",
         function (data) {
           members = data.results;
@@ -42,22 +41,31 @@
               $("#members ul").append('<li><a href="'+this.link+'" target="_blank">'+this.name+' ('+this.city+')</li>')
             }
           )
-          
-        });  
-          
+
         });
+
+        $.getJSON("http://friendfeed.com/api/feed/room/indyrb?format=json&num=1&callback=?",
+        function(data) {
+          $.each(data.entries, function() {
+            $("#friendfeed ul").append('<li>' + this.title + '</li>');
+          });
+        });
+
+
+      });
+
     </script>
-    
+
     <link rel="stylesheet" href="stylesheets/gutterless_blueprint_css/screen.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="stylesheets/gutterless_blueprint_css/gutterless.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="stylesheets/gutterless_blueprint_css/print.css" type="text/css" media="print">    
+    <link rel="stylesheet" href="stylesheets/gutterless_blueprint_css/print.css" type="text/css" media="print">
     <link rel="stylesheet" href="stylesheets/jquery.twitter.css" type="text/css" media="screen, projection">
     <!--[if IE]><link rel="stylesheet" href="stylesheets/gutterless_blueprint_css/ie.css" type="text/css" media="screen, projection"><![endif]-->
 
     <link rel="stylesheet" href="stylesheets/application.css" type="text/css" media="screen, projection, print">
-    
 
-          
+
+
   </head>
   <body>
 
@@ -69,15 +77,15 @@
         <div class="span-56">
           <div id="tagline">A group that meets once a month to chat about Ruby on Rails and the Ruby programming language.</div>
         </div>
-        
+
         <div class="span-56">
           <div id="signup" class="success"><a href="http://ruby.meetup.com/89/">Join Now.</a> (it's free)</div>
         </div>
-        
-        
-        <div id="main_content" class="span-30">      
+
+
+        <div id="main_content" class="span-30">
           <div id="next_meetup" class="box left top">
-         
+
               <h2 class="bottom">Our Next Meetup</h3>
               <strong>Date:</strong> <span id="next_meetup_date"></span>
               <br />
@@ -104,7 +112,7 @@
               <div id="twitter"></div>
           </div>
         </div>
-        
+
         <div id="sidebar" class="span-26">
           <div id="members" class="box border-left top">
             <h2 class="bottom">Our Rubyists</h3>
@@ -114,18 +122,22 @@
         </div>
 
 
-        
-        
+
+
       </div>
-      
-      
+
+
       <div id="footer" class="span-60">
         <div class="box-1">
           &copy; 2008 The Indianapolis Ruby Brigade
         </div>
+        <div id="friendfeed">
+          <ul>
+          </ul>
+        </div>
       </div>
-      
+
     </div>
-  
+
   </body>
 </html>
