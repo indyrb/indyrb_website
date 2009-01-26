@@ -1,0 +1,58 @@
+body {
+	background-color:#D9D9D9;
+	margin:0;
+	background-image: url('../images/battle.jpg');
+	background-position: center center;
+}
+
+
+
+hr {
+  /*clear:both;*/
+  margin-top: 20px;
+  margin-bottom:20px;
+  clear:both;
+	height:5px;
+}
+.container {
+  width:600px;
+	background-color:white;
+}
+
+#footer {
+	background-color:#333;
+	color:#FFF;
+	text-align:center;
+}
+
+#tagline {
+	background-color:#555;
+	font-size:150%;
+	color:#FFF;
+	margin: 15px 0 0 0;
+	padding: 10px 20px;
+}
+
+#signup {
+	text-align:center;
+	font-size:170%;
+}
+
+.highlight {
+  background:#FFFFCC;
+  padding:8px;
+  border:1px solid #999;
+}
+
+#next_meetup {
+
+}
+
+#members ul {
+	margin-left:0;
+}
+
+#members li {
+	list-style-type:none;
+	
+}

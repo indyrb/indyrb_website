@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Indy.rb &mdash; The Indianapolis Ruby Brigade!</title>
+
+    <script type="text/javascript" src="javascripts/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="javascripts/formatdate.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.twitter.js"></script>
+    <script type="text/javascript">
+      // on page load complete, fire off a jQuery json-p query
+      // against Google web search
+      $(document).ready(function(){
+
+        $("#twitter").getTwitter({
+          userName: "indyrb",
+          numTweets: 5,
+          loaderText: "Loading tweets...",
+          slideIn: false,
+          showHeading: false,
+          headingText: "Latest Tweets",
+          showProfileLink: false
+        });
+
+        $.getJSON("http://api.meetup.com/events.json/?topic=ruby&groupnum=89&key=6a7801841e16295e1e722e254370&callback=?",
+        function (data) {
+          nextMeetup = data.results[0];
+          $('#next_meetup_name').html(nextMeetup.name);
+          date = new Date(nextMeetup.time)
+          $('#next_meetup_date').html(date.formatDate('l, F j'));
+          // $('#next_meetup_time').html(date.formatDate('g:i a'));
+          $('#next_meetup_rsvpcount').html(nextMeetup.rsvpcount);
+          $('.next_meetup_event_url').attr('href', nextMeetup.event_url)
+        });
+
+        $.getJSON("http://api.meetup.com/members.json/?topic=ruby&groupnum=89&key=6a7801841e16295e1e722e254370&callback=?",
+        function (data) {
+          members = data.results;
+          $.each(members, function() {
+              $("#members ul").append('<li><a href="'+this.link+'" target="_blank">'+this.name+' ('+this.city+')</li>')
+            }
+          )
+
+        });
+/*
+        $.getJSON("http://friendfeed.com/api/feed/room/indyrb?format=json&num=1&callback=?",
+        function(data) {
+          $.each(data.entries, function() {
+            $("#friendfeed ul").append('<li>' + this.title + '</li>');
+          });
+        });
+*/
+
+
+      });
+
+    </script>
+
+    <!--
+    <link rel="stylesheet" href="css/gutterless_blueprint_css/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="css/gutterless_blueprint_css/gutterless.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="css/gutterless_blueprint_css/print.css" type="text/css" media="print">
+    -->
+    <!--[if IE]>
+      <link rel="stylesheet" href="css/gutterless_blueprint_css/ie.css" type="text/css" media="screen, projection">
+    <![endif]-->
+
+    <link rel="stylesheet" href="css/jquery.twitter.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="css/application.css" type="text/css" media="screen, projection, print">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="box">
+
+        <div id="header" class="span-56">
+          <img src="images/indyrb_logo.png" alt="Indyrb.org">
+        </div>
+        <div class="span-56">
+          <div id="tagline">A group that meets once a month to chat about Ruby on Rails and the Ruby programming language.</div>
+        </div>
+
+        <div class="span-56">
+          <div id="signup" class="success"><a href="http://ruby.meetup.com/89/">Join Now.</a> (it's free)</div>
+        </div>
+
+
+        <div id="main_content" class="span-30">
+          <div id="next_meetup" class="box left top">
+            <h2 class="bottom">Our Next Meetup</h2>
+<strong>Date:</strong> <span id="next_meetup_date"></span>
+<br />
+<strong>Time:</strong> <span id="next_meetup_time">7:00 pm</span>
+<br />
+<a href="#" class="next_meetup_event_url">View Location and Additional Details</a>
+<br />
+<strong># Attending:</strong> <span id="next_meetup_rsvpcount"></span> <a class="next_meetup_event_url" href="#">RSVP Now!</a>
+<br />
+<br />
+<p>
+<img src="images/engine_yard_logo.png" style="width:60px;float:left;margin:0 8px 2px 0">
+<strong>Sponsored by EngineYard</strong>
+<br />
+<small>We focus on deployment and operations support, so you can focus on developing your business. Start while in development and scale your user base without stress along the way. Engine Yard supports the Ruby community by sponsoring the development of Rails, Merb, Rubinius and other open source projects. We&#8217;re here 24/7, by phone, at (866) 518-YARD or email, at <a href="mailto:info@engineyard.com">info@engineyard.com</a>.</small>
+</p>
+<hr />
+            <h2 class="bottom">Our Mailing List</h2>
+<a href="http://ruby.meetup.com/89/messages/">Start a Topic or View the Archive</a>
+<hr />
+            <h2 class="bottom">Latest Tweets</h2>
+Start following at <a href="http://www.twitter.com/indyrb">twitter.com/indyrb</a>
+<br />
+            <div id="twitter"></div>
+</div>
+        </div>
+
+        <div id="sidebar" class="span-26">
+          <div id="members" class="box border-left top">
+            <h2 class="bottom">Our Rubyists</h3>
+            <ul>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="footer" class="span-60">
+        <div class="box-1">
+          &copy; 2008 The Indianapolis Ruby Brigade
+        </div>
+        <div id="friendfeed">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
