@@ -17,7 +17,6 @@ hr {
 .container {
   width:600px;
 	background-color:white;
-
 }
 
 #footer {
@@ -56,4 +55,16 @@ hr {
 #members li {
 	list-style-type:none;
 	
+}
+
+#friendfeed ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#friendfeed ul li {
+  margin: 0;
+  padding: 0.8em 0 1em;
+  border-bottom: 1px solid #ccc;
 }
