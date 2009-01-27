@@ -48,7 +48,7 @@ filter:    erb
 
         });
         // FriendFeed room feed
-        $.getJSON("http://friendfeed.com/api/feed/room/indyrb?format=json&num=10&callback=?",
+        $.getJSON("http://friendfeed.com/api/feed/room/indyrb?format=json&num=25&callback=?",
         function(data) {
           $.each(data.entries, function() {
             $("#friendfeed ul").append('<li><a href="' + this.link + '">' + this.title + '</a><br /><p class="bottom">by ' + this.user.name + '</li>');
@@ -73,35 +73,46 @@ filter:    erb
   <body>
 
     <div class="container">
-      <div class="box">
+      <div class="box-2">
 
-        <div id="header" class="span-56">
-          <img src="images/indyrb_logo.png" alt="Indyrb.org">
+        <div id="header" class="span-86">
+          <div class="box-1 top bottom">
+            <img src="images/indyrb_logo.png" alt="Indyrb.org">
+          </div>
         </div>
-        <div class="span-56">
+        <div class="span-86">
           <div id="tagline">A group that meets once a month to chat about Ruby on Rails and the Ruby programming language.</div>
         </div>
 
-        <div class="span-56">
-          <div id="signup" class="success"><a href="http://ruby.meetup.com/89/">Join Now.</a> (it's free)</div>
+        <div class="span-86">
+          <div id="signup" class="success"><a href="http://ruby.meetup.com/indyrb/">Join Now.</a> (it's free)</div>
         </div>
+      </div>
+      
+      <div class="box-3">
 
-
-        <div id="main_content" class="span-30">
+        <div id="main_content" class="span-29">
           <%= @content %>
         </div>
-
+        
+        <div id="friendfeed" class="span-29">
+          <div class="box top border-left border-right">
+            <h2 class="bottom">Our FriendFeed</h2>
+            <p class="bottom">Find news, submit news, comment on news, or just chat with Indy.rb-ers in <a class="highlight" href="http://friendfeed.com/rooms/indyrb">our FriendFeed room</a></p>
+              <ul></ul>
+          </div>
+        </div>
+        
         <div id="sidebar" class="span-26">
-          <div id="members" class="box border-left top">
-            <h2 class="bottom">Our Rubyists</h3>
-            <ul>
-            </ul>
+          <div id="members" class="box top">
+            <h2 class="bottom">Our Rubyists</h2>
+            <ul></ul>
           </div>
         </div>
 
       </div>
 
-      <div id="footer" class="span-60">
+      <div id="footer" class="span-90">
         <div class="box-1">
           &copy; 2008 The Indianapolis Ruby Brigade
         </div>

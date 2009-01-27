@@ -4,38 +4,39 @@ filter:
   - haml
   - textile
 ---
-#next_meetup.box.left.top
-  %h2.bottom
-    Our Next Meetup
-  %strong
-    Date:
-  %span#next_meetup_date
-  %br
-  %strong
-    Time:
-  %span#next_meetup_time
-    7:00 pm
-  %br
-  %a.next_meetup_event_url{ :href => "#" }
-    View Location and Additional Details
-  %br
-  %strong
-    \# Attending:
-  %span#next_meetup_rsvpcount
-  %a.next_meetup_event_url{ :href => "#" }
-    RSVP Now!
-  %br
-  %br
-  %p
-    %img{ :src => "images/engine_yard_logo.png", :style => "width:60px;float:left;margin:0 8px 2px 0" }
-      %strong
-        Sponsored by EngineYard
-      %br
-      %small
-        We focus on deployment and operations support, so you can focus on developing your business. Start while in development and scale your user base without stress along the way. Engine Yard supports the Ruby community by sponsoring the development of Rails, Merb, Rubinius and other open source projects. We're here 24/7, by phone, at (866) 518-YARD or email, at
-        %a{ :href => "mailto:info@engineyard.com" }
-          info@engineyard.com
-        \.
+.box.left.top
+  #next_meetup
+    %h2.bottom
+      Our Next Meetup
+    %strong
+      Date:
+    %span#next_meetup_date
+    %br
+    %strong
+      Time:
+    %span#next_meetup_time
+      7:00 pm
+    %br
+    %a.next_meetup_event_url{ :href => "#" }
+      View Location and Additional Details
+    %br
+    %strong
+      \# Attending:
+    %span#next_meetup_rsvpcount
+    %a.next_meetup_event_url{ :href => "#" }
+      RSVP Now!
+    %br
+    %br
+    %p
+      %img{ :src => "images/engine_yard_logo.png", :style => "width:60px;float:left;margin:0 8px 2px 0" }
+        %strong
+          Sponsored by EngineYard
+        %br
+        %small
+          We focus on deployment and operations support, so you can focus on developing your business. Start while in development and scale your user base without stress along the way. Engine Yard supports the Ruby community by sponsoring the development of Rails, Merb, Rubinius and other open source projects. We're here 24/7, by phone, at (866) 518-YARD or email, at
+          %a{ :href => "mailto:info@engineyard.com" }
+            info@engineyard.com
+          \.
   %hr
   %h2.bottom
     Our Mailing List
@@ -43,16 +44,9 @@ filter:
     Start a Topic or View the Archive
   %hr
   %h2.bottom
-    Latest Tweets
+    Our Tweets
   Start following at
-  %a{ :href => "http://www.twitter.com/indyrb" }
+  %a{ :class => :highlight, :href => "http://www.twitter.com/indyrb" }
     twitter.com/indyrb
   %br
   #twitter
-  %hr
-  %h2.bottom
-    The Indy.rb Room
-  Find news, submit news, comment on news, or just chat with Indy.rb-ers in "our FriendFeed room":http://friendfeed.com/rooms/indyrb
-  %br
-  #friendfeed
-    %ul
