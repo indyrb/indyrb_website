@@ -48,7 +48,7 @@ filter:    erb
 
         });
         // FriendFeed room feed
-        $.getJSON("http://friendfeed.com/api/feed/room/indyrb?format=json&num=5&callback=?",
+        $.getJSON("http://friendfeed.com/api/feed/room/indyrb?format=json&num=10&callback=?",
         function(data) {
           $.each(data.entries, function() {
             $("#friendfeed ul").append('<li><a href="' + this.link + '">' + this.title + '</a><br /><p class="bottom">by ' + this.user.name + '</li>');
