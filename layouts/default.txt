@@ -85,7 +85,7 @@ filter:    erb
         </div>
 
         <div class="span-86">
-          <div id="signup" class="success"><a href="http://ruby.meetup.com/indyrb/">Join Now.</a> (it's free)</div>
+          <div id="signup" class="success"><a href="http://www.meetup.com/indyrb/">Join Now.</a> (it's free)</div>
         </div>
       </div>
       
