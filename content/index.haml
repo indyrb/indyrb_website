@@ -1,124 +1,35 @@
 ---
 title:      Indy.rb &mdash; The Indianapolis Ruby Brigade!
+extension: html
 filter:
   - haml
 ---
-.box.left.top
-  #next_meetup
-    %h2.bottom
-      Our Next Meetup
-    %strong
-      Date:
-    %span#next_meetup_date
-    %br
-    %strong
-      Time:
-    %span#next_meetup_time
-      7:00 pm
-    %br
-    %a.next_meetup_event_url{ :href => "#" }
-      View Location and Additional Details
-    %br
-    %strong
-      \# Attending:
-    %span#next_meetup_rsvpcount
-    %a.next_meetup_event_url{ :href => "#" }
-      RSVP Now!
-    %br
-    %br
-
-    -#
-      %p
-        %img{ :src => "images/engine_yard_logo.png", :style => "width:60px;float:left;margin:0 8px 2px 0" }
-        %strong
-          EngineYard
-        %br
-        %small
-          We focus on deployment and operations support, so you can focus on developing your business. Start while in development and scale your user base without stress along the way. Engine Yard supports the Ruby community by sponsoring the development of Rails, Merb, Rubinius and other open source projects. We're here 24/7, by phone, at (866) 518-YARD or email, at
-          %a{ :href => "mailto:info@engineyard.com" }
-            info@engineyard.com
-          \.
-    %img{ :src => "images/engine_yard_logo.png", :style => "width:60px;float:left;margin:0 8px 2px 0" }
-    %p   
-      %strong
-        Sponsored by EngineYard
-      %br
-      %small
-        We focus on deployment and operations support, so you can focus on developing your business. Start while in development and scale your user base without stress along the way. Engine Yard supports the Ruby community by sponsoring the development of Rails, Merb, Rubinius and other open source projects. We're here 24/7, by phone, at (866) 518-YARD or email, at
-        %a{ :href => "mailto:info@engineyard.com" }
-          info@engineyard.com
-        \.
-    %img{ :src => "images/New-Relic-logo.gif", :style => "width:160px;margin:0 8px 2px 0" }
-    %p
-      %strong
-        Sponsored by New Relic
-      %br
-      %small
-        <a href="http://www.newrelic.com/RPM.html" target="_blank">New Relic RPM</a> is a Ruby on Rails Performance Management solution that enables developers to quickly and cost effectively detect, diagnose, and fix application performance problems in real time.
-        %a{ :href => "http://www.newrelic.com" }
-          www.NewRelic.com
-
-    %img{ :src => "images/nFrame_Logo_small.gif", :style => "width:160px;margin:0 8px 2px 0" }
-    %p
-      %strong
-        Sponsored by nFrame
-      %br
-      %small
-        <a href="http://www.nframe.com" target="_blank">nFrame</a> n|Frame has 15 years of experience providing professional technology infrastructure services to Indianapolis and Indiana organizations of all sizes.  These services include data center services, network management, commercial Internet broadband access, managed IT services, SAN solutions, disaster recovery, cloud computing and server virtualization.
-
-  %hr
-  %h2.bottom
-    Our Mailing List
-  %a{ :href => "http://ruby.meetup.com/89/messages/" }
-    Start a Topic or View the Archive
-  %hr
-  
-  %h2.bottom
-    Our IRC
-  Join us at 
-  %span.highlight
-    \#indyrb
-  on freenode
-  %br
-  %a{ :href => "http://audioslave.tgfi.net/indyrb/", :target => :blank }
-    View #indyrb IRC Chat Log
-
-  %hr
-  
-  
-  %h2.bottom
-    Our Tweets
-  Start following at
-  %a{ :class => :highlight, :href => "http://www.twitter.com/indyrb" }
-    twitter.com/indyrb
-  %br
-  #twitter
-  
-  -#
-    %hr
-    %h2
-      Our Sponsors
-
-
-    -# NEW RELIC
-    %img{ :src => "images/New-Relic-logo.gif", :style => "width:160px;margin:0 8px 2px 0" }
-    %p
-      %strong
-        New Relic
-      %br
-      %small
-        <a href="http://www.newrelic.com/RPM.html" target="_blank">New Relic RPM</a> is a Ruby on Rails Performance Management solution that enables developers to quickly and cost effectively detect, diagnose, and fix application performance problems in real time.
-        %a{ :href => "http://www.newrelic.com" }
-          www.NewRelic.com
-  
-    -# ENGINE YARD
-      %p
-        %img{ :src => "images/engine_yard_logo.png", :style => "width:60px;float:left;margin:0 8px 2px 0" }
-        %strong
-          EngineYard
-        %br
-        %small
-          We focus on deployment and operations support, so you can focus on developing your business. Start while in development and scale your user base without stress along the way. Engine Yard supports the Ruby community by sponsoring the development of Rails, Merb, Rubinius and other open source projects. We're here 24/7, by phone, at (866) 518-YARD or email, at
-          %a{ :href => "mailto:info@engineyard.com" }
-            info@engineyard.com
-          \.
+%h2 Presentations for Indy.rb Meetup May 11, 2011
+.presentation 
+  %h3 032: Ruby News local &amp; Global with Matt Gordon
+  %p
+    %strong 16m : 28s
+    %a{:href => "http://podcast.404dev.com/episodes/032_Matt_Gordon-Ruby_News.m4v"}Watch Now
+.presentation
+  %h3 033: Miles Sterrett - DataMapper
+  %p
+    %strong 19m : 24s
+    %a{:href => "http://podcast.404dev.com/episodes/033_Miles_Sterrett-Datamapper.m4v"}Watch Now
+    \/
+    %a{ :href => "https://github.com/datamapper/dm-core"}Gem 
+.presentation
+  %h3 034: Joel Meador - Guard
+  %p
+    %strong 15m : 18s 
+    %a{:href => "http://podcast.404dev.com/episodes/034_Joel_Meador-Guard.m4v"}Watch Now
+    \/
+    %a{ :href => "https://github.com/guard/guard"}Gem 
+    \/
+    %a{ :href => "https://github.com/janxious/guard_demo"}Presentation Code
+.presentation
+  %h3 035: David Woodward - Rspec Sucks (roundtable)
+  %p
+    %strong 25m : 33s
+    %a{:href => "http://podcast.404dev.com/episodes/035_David_Woodward-Rspec_Sucks.m4v"}Watch Now
+    \/
+    %a{:href => "https://github.com/dchelimsky/rspec"}Gem

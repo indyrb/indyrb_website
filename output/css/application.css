@@ -1,7 +1,7 @@
 body {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   margin: 0;
-  background-image: url('../images/battle.jpg');
+  background-image: url("../images/battle.jpg");
   background-position: center center; }
 
 hr {
@@ -13,16 +13,47 @@ hr {
 .container {
   width: 900px;
   background-color: white; }
+  .container #center a, .container #sidebar a {
+    color: #cb3333; }
+  .container #center a:hover, .container #sidebar a:hover {
+    color: #980000; }
+  .container #center p {
+    margin-left: 15px; }
+  .container #sidebar {
+    margin-bottom: 15px; }
 
 #footer {
-  background-color: #333;
-  color: #FFF;
+  background-color: #333333;
+  color: white;
   text-align: center; }
+  #footer #sponsors {
+    width: 670px;
+    margin: 0 auto; }
+    #footer #sponsors #new-relic .img-container {
+      padding-top: 28px;
+      padding-bottom: 28px; }
+    #footer #sponsors .sponsor {
+      text-align: left;
+      margin: 5px;
+      padding: 10px; }
+      #footer #sponsors .sponsor a {
+        color: #cb3333; }
+      #footer #sponsors .sponsor a:hover {
+        color: #980000; }
+      #footer #sponsors .sponsor .img-container {
+        background-color: white;
+        padding: 10px;
+        text-align: center; }
+
+#copy {
+  width: 900px;
+  text-align: center;
+  margin: 0 auto; }
 
 #tagline {
-  background-color: #555;
+  background-color: #555555;
   font-size: 150%;
-  color: #FFF;
+  color: white;
   margin: 15px 0 0 0;
   padding: 10px 20px; }
 
@@ -31,19 +62,4 @@ hr {
   font-size: 170%; }
 
 .highlight {
-  background: #FFFFCC; }
-
-
-#members ul {
-  margin-left: 0; }
-#members li {
-  list-style-type: none; }
-
-#friendfeed ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0; }
-  #friendfeed ul li {
-    margin: 0;
-    padding: 0.8em 0.1em;
-    border-bottom: 1px solid #ccc; }
+  background: #ffffcc; }

@@ -1,237 +1,219 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='content-type' />
     <title>Indy.rb &mdash; The Indianapolis Ruby Brigade!</title>
-
-    <script type="text/javascript" src="javascripts/jquery-1.2.6.js"></script>
-    <script type="text/javascript" src="javascripts/formatdate.js"></script>
-    <script type="text/javascript" src="javascripts/jquery.twitter.js"></script>
-    <script type="text/javascript">
-      // on page load complete, fire off a jQuery json-p query
-      // against Google web search
-      $(document).ready(function(){
-
-        $("#twitter").getTwitter({
-          userName: "indyrb",
-          numTweets: 5,
-          loaderText: "Loading tweets...",
-          slideIn: false,
-          showHeading: false,
-          headingText: "Latest Tweets",
-          showProfileLink: false
-        });
-
-        $.getJSON("http://api.meetup.com/events.json/?topic=ruby&groupnum=89&key=6a7801841e16295e1e722e254370&callback=?",
-        function (data) {
-          nextMeetup = data.results[0];
-          $('#next_meetup_name').html(nextMeetup.name);
-          date = new Date(nextMeetup.time)
-          $('#next_meetup_date').html(date.formatDate('l, F j'));
-          // $('#next_meetup_time').html(date.formatDate('g:i a'));
-          $('#next_meetup_rsvpcount').html(nextMeetup.rsvpcount);
-          $('.next_meetup_event_url').attr('href', nextMeetup.event_url)
-        });
-
-        $.getJSON("http://api.meetup.com/members.json/?topic=ruby&groupnum=89&key=6a7801841e16295e1e722e254370&callback=?",
-        function (data) {
-          members = data.results;
-          $.each(members, function() {
-              $("#members ul").append('<li><a href="'+this.link+'" target="_blank">'+this.name+' ('+this.city+')</li>')
-            }
-          )
-
-        });
-        // FriendFeed room feed
-        $.getJSON("http://friendfeed.com/api/feed/room/indyrb?format=json&num=25&callback=?",
-        function(data) {
-          $.each(data.entries, function() {
-            $("#friendfeed ul").append('<li><a href="' + this.link + '">' + this.title + '</a><br /><p class="bottom">by ' + this.user.name + '</li>');
+    <script src='javascripts/jquery-1.2.6.js' type='text/javascript'></script>
+    <script src='javascripts/formatdate.js' type='text/javascript'></script>
+    <script src='javascripts/jquery.twitter.js' type='text/javascript'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        // on page load complete, fire off a jQuery json-p query
+        // against Google web search
+        $(document).ready(function(){
+        
+          $("#twitter").getTwitter({
+            userName: "indyrb",
+            numTweets: 1,
+            loaderText: "Loading tweets...",
+            slideIn: false,
+            showHeading: false,
+            headingText: "Latest Tweets",
+            showProfileLink: false
+          });
+        
+          $.getJSON("http://api.meetup.com/events.json/?topic=ruby&groupnum=89&key=6a7801841e16295e1e722e254370&callback=?",
+          function (data) {
+            nextMeetup = data.results[0];
+            $('#next_meetup_name').html(nextMeetup.name);
+            date = new Date(nextMeetup.time)
+            $('#next_meetup_date').html(date.formatDate('l, F j'));
+            // $('#next_meetup_time').html(date.formatDate('g:i a'));
+            $('#next_meetup_rsvpcount').html(nextMeetup.rsvpcount);
+            $('.next_meetup_event_url').attr('href', nextMeetup.event_url)
           });
         });
-
-
-      });
-
+      //]]>
     </script>
-
-    <link rel="stylesheet" href="css/gutterless_blueprint_css/screen.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="css/gutterless_blueprint_css/gutterless.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="css/gutterless_blueprint_css/print.css" type="text/css" media="print">
+    <link href='css/gutterless_blueprint_css/screen.css' media='screen, projection' rel='stylesheet' type='text/css' />
+    <link href='css/gutterless_blueprint_css/gutterless.css' media='screen, projection' rel='stylesheet' type='text/css' />
+    <link href='css/gutterless_blueprint_css/print.css' media='print' rel='stylesheet' type='text/css' />
     <!--[if IE]>
       <link rel="stylesheet" href="css/gutterless_blueprint_css/ie.css" type="text/css" media="screen, projection">
     <![endif]-->
-
-    <link rel="stylesheet" href="css/jquery.twitter.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="css/application.css" type="text/css" media="screen, projection, print">
+    <link href='css/jquery.twitter.css' media='screen, projection' rel='stylesheet' type='text/css' />
+    <link href='css/application.css' media='screen, projection, print' rel='stylesheet' type='text/css' />
   </head>
   <body>
-
-    <div class="container">
-      <div class="box-2">
-
-        <div id="header" class="span-86">
-          <div class="box-1 top bottom">
-            <img src="images/indyrb_logo.png" alt="Indyrb.org">
+    <div class='container'>
+      <div class='box-2'>
+        <div class='span-86' id='header'>
+          <div class='box-1 top bottom'>
+            <img alt='Indyrb.org' src='images/indyrb_logo.png' />
           </div>
         </div>
-        <div class="span-86">
-          <div id="tagline">A group that meets once a month to chat about Ruby on Rails and the Ruby programming language.</div>
+        <div class='span-86'>
+          <div id='tagline'>A group that meets once a month to chat about Ruby on Rails and the Ruby programming language.</div>
         </div>
-
-        <div class="span-86">
-          <div id="signup" class="success">
-            <a href="http://www.meetup.com/indyrb/">Join Now.</a> (it's free)
-            <br/>
-            <a href="/recordings/">View past meetup recordings</a>
+        <div class='span-86'>
+          <div class='success' id='signup'>
+            <a href='http://www.meetup.com/indyrb/'>Join Now</a>
+            (it's free)
           </div>
         </div>
       </div>
-      
-      <div class="box-3">
-
-        <div id="main_content" class="span-29">
-          <div class='box left top'>
-  <div id='next_meetup'>
-    <h2 class='bottom'>
-      Our Next Meetup
-    </h2>
-    <strong>
-      Date:
-    </strong>
-    <span id='next_meetup_date'></span>
-    <br />
-    <strong>
-      Time:
-    </strong>
-    <span id='next_meetup_time'>
-      7:00 pm
-    </span>
-    <br />
-    <a class='next_meetup_event_url' href='#'>
-      View Location and Additional Details
-    </a>
-    <br />
-    <strong>
-      # Attending:
-    </strong>
-    <span id='next_meetup_rsvpcount'></span>
-    <a class='next_meetup_event_url' href='#'>
-      RSVP Now!
-    </a>
-    <br />
-    <br />
-    <img src='images/engine_yard_logo.png' style='width:60px;float:left;margin:0 8px 2px 0' />
-    <p>
-      <strong>
-        Sponsored by EngineYard
-      </strong>
-      <br />
-      <small>
-        We focus on deployment and operations support, so you can focus on developing your business. Start while in development and scale your user base without stress along the way. Engine Yard supports the Ruby community by sponsoring the development of Rails, Merb, Rubinius and other open source projects. We're here 24/7, by phone, at (866) 518-YARD or email, at
-        <a href='mailto:info@engineyard.com'>
-          info@engineyard.com
-        </a>
-        .
-      </small>
-    </p>
-    <img src='images/New-Relic-logo.gif' style='width:160px;margin:0 8px 2px 0' />
-    <p>
-      <strong>
-        Sponsored by New Relic
-      </strong>
-      <br />
-      <small>
-        <a href="http://www.newrelic.com/RPM.html" target="_blank">New Relic RPM</a> is a Ruby on Rails Performance Management solution that enables developers to quickly and cost effectively detect, diagnose, and fix application performance problems in real time.
-        <a href='http://www.newrelic.com'>
-          www.NewRelic.com
-        </a>
-      </small>
-    </p>
-    <img src='images/nFrame_Logo_small.gif' style='width:160px;margin:0 8px 2px 0' />
-    <p>
-      <strong>
-        Sponsored by nFrame
-      </strong>
-      <br />
-      <small>
-        <a href="http://www.nframe.com" target="_blank">nFrame</a> n|Frame has 15 years of experience providing professional technology infrastructure services to Indianapolis and Indiana organizations of all sizes.  These services include data center services, network management, commercial Internet broadband access, managed IT services, SAN solutions, disaster recovery, cloud computing and server virtualization.
-      </small>
-    </p>
-  </div>
-  <hr />
-  <h2 class='bottom'>
-    Our Mailing List
-  </h2>
-  <a href='http://ruby.meetup.com/89/messages/'>
-    Start a Topic or View the Archive
-  </a>
-  <hr />
-  <h2 class='bottom'>
-    Our IRC
-  </h2>
-  Join us at
-  <span class='highlight'>
-    #indyrb
-  </span>
-  on freenode
-  <br />
-  <a href='http://audioslave.tgfi.net/indyrb/' target='blank'>
-    View #indyrb IRC Chat Log
-  </a>
-  <hr />
-  <h2 class='bottom'>
-    Our Tweets
-  </h2>
-  Start following at
-  <a class='highlight' href='http://www.twitter.com/indyrb'>
-    twitter.com/indyrb
-  </a>
-  <br />
-  <div id='twitter'></div>
-</div>
-
-        </div>
-        
-        <div id="friendfeed" class="span-29">
-          <div class="box top border-left border-right">
-            <h2 class="bottom">Our FriendFeed</h2>
-            <p class="bottom">Find news, submit news, comment on news, or just chat with Indy.rb-ers in <a class="highlight" href="http://friendfeed.com/rooms/indyrb">our FriendFeed room</a></p>
-              <ul></ul>
+      <div class='box-3'>
+        <div class='span-58' id='center'>
+          <h2>Presentations for Indy.rb Meetup May 11, 2011</h2>
+          <div class='presentation'>
+            <h3>032: Ruby News local &amp; Global with Matt Gordon</h3>
+            <p>
+              <strong>16m : 28s</strong>
+              <a href='http://podcast.404dev.com/episodes/032_Matt_Gordon-Ruby_News.m4v'>Watch Now</a>
+            </p>
+          </div>
+          <div class='presentation'>
+            <h3>033: Miles Sterrett - DataMapper</h3>
+            <p>
+              <strong>19m : 24s</strong>
+              <a href='http://podcast.404dev.com/episodes/033_Miles_Sterrett-Datamapper.m4v'>Watch Now</a>
+              /
+              <a href='https://github.com/datamapper/dm-core'>Gem</a>
+            </p>
+          </div>
+          <div class='presentation'>
+            <h3>034: Joel Meador - Guard</h3>
+            <p>
+              <strong>15m : 18s</strong>
+              <a href='http://podcast.404dev.com/episodes/034_Joel_Meador-Guard.m4v'>Watch Now</a>
+              /
+              <a href='https://github.com/guard/guard'>Gem</a>
+              /
+              <a href='https://github.com/janxious/guard_demo'>Presentation Code</a>
+            </p>
+          </div>
+          <div class='presentation'>
+            <h3>035: David Woodward - Rspec Sucks (roundtable)</h3>
+            <p>
+              <strong>25m : 33s</strong>
+              <a href='http://podcast.404dev.com/episodes/035_David_Woodward-Rspec_Sucks.m4v'>Watch Now</a>
+              /
+              <a href='https://github.com/dchelimsky/rspec'>Gem</a>
+            </p>
           </div>
         </div>
-        
-        <div id="sidebar" class="span-26">
-          <div id="members" class="box top">
-            <h2 class="bottom">Our Rubyists</h2>
-            <ul></ul>
+        <div class='span-26' id='sidebar'>
+          <div id='next_meetup'>
+            <h2 class='bottom'>
+              Our Next Meetup
+            </h2>
+            <strong>
+              Date:
+            </strong>
+            <span id='next_meetup_date'></span>
+            <br />
+            <strong>
+              Time:
+            </strong>
+            <span id='next_meetup_time'>
+              7:00 pm
+            </span>
+            <br />
+            <a class='next_meetup_event_url' href='#'>
+              View Location and Additional Details
+            </a>
+            <br />
+            <strong>
+              # Attending:
+            </strong>
+            <span id='next_meetup_rsvpcount'></span>
+            <a class='next_meetup_event_url' href='#'>
+              RSVP Now!
+            </a>
           </div>
+          <hr />
+          <h2 class='bottom'>
+            Our Tweets
+          </h2>
+          Start following at
+          <a class='highlight' href='http://www.twitter.com/indyrb'>
+            twitter.com/indyrb
+          </a>
+          <br />
+          <div id='twitter'></div>
+          <hr />
+          <h2 class='bottom'>
+            Our Mailing List
+          </h2>
+          <a href='http://ruby.meetup.com/89/messages/'>
+            Start a Topic or View the Archive
+          </a>
+          <hr />
+          <h2 class='bottom'>
+            Our IRC
+          </h2>
+          <a href='http://webchat.freenode.net/'>Join us</a>
+          at
+          <span class='highlight'>
+            #indyrb
+          </span>
+          on freenode
         </div>
-
       </div>
-
-      <div id="footer" class="span-90">
-        <div class="box-1">
-          &copy; 2008 The Indianapolis Ruby Brigade
+      <div class='span-90' id='footer'>
+        <div id='sponsors'>
+          <div class='sponsor span-30' id='new-relic'>
+            <div class='img-container'>
+              <img src='images/New-Relic-logo.gif' style='width:160px;margin:0 8px 2px 0' />
+            </div>
+            <p>
+              <strong>
+                Sponsored by New Relic
+              </strong>
+              <p>
+                One Tool. One place to resolve problems, fast. Use the tool thousands of developers turn to and get immediate insight from the end user's behavior down to the line of code. Performance management has never been so easy. Use
+                <a href='http://www.newrelic.com/RPM.html' target='_blank'>New Relic</a>
+              </p>
+            </p>
+          </div>
+          <div class='sponsor span-30' id='nframe'>
+            <div class='img-container'>
+              <img src='images/nFrame_Logo_small.gif' style='width:160px;margin:0 8px 2px 0' />
+            </div>
+            <p>
+              <strong>
+                Sponsored by nFrame
+              </strong>
+              <p>
+                <a href='http://www.nframe.com' target='_blank'>n|Frame</a>
+                has 15 years of experience providing professional technology infrastructure services to Indianapolis and Indiana organizations of all sizes.  These services include data center services, network management, commercial Internet broadband access, managed IT services, SAN solutions, disaster recovery, cloud computing and server virtualization.
+              </p>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-      var uservoiceJsHost = ("https:" == document.location.protocol) ? "https://uservoice.com" : "http://cdn.uservoice.com";
-      document.write(unescape("%3Cscript src='" + uservoiceJsHost + "/javascripts/widgets/tab.js' type='text/javascript'%3E%3C/script%3E"))
-    </script>
-    <script type="text/javascript">
-    UserVoice.Tab.show({ 
-      key: 'indyrb',
-      host: 'indyrb.uservoice.com', 
-      forum: 'general', 
-      alignment: 'left',
-      background_color:'#f00', 
-      text_color: 'white',
-      hover_color: '#06C',
-      lang: 'en'
-    })
+    <div id='copy'>
+      &copy;
+      2011
+      Indianapolis Ruby Brigade
+    </div>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var uservoiceJsHost = ("https:" == document.location.protocol) ? "https://uservoice.com" : "http://cdn.uservoice.com";
+        document.write(unescape("%3Cscript src='" + uservoiceJsHost + "/javascripts/widgets/tab.js' type='text/javascript'%3E%3C/script%3E"))
+          :javascript
+        UserVoice.Tab.show({
+          key: 'indyrb',
+          host: 'indyrb.uservoice.com',
+          forum: 'general',
+          alignment: 'left',
+          background_color:'#f00',
+          text_color: 'white',
+          hover_color: '#06C',
+          lang: 'en'
+        })
+      //]]>
     </script>
   </body>
 </html>
