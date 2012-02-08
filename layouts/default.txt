@@ -109,13 +109,14 @@ filter:    haml
         #sponsors
           #iasta.sponsor.span-30
             .img-container
-              %img{ :src => "images/iasta_logo.png", :style => "width:160px;margin:0 8px 2px 0" }
+              %img{ :src => "images/logo_indyrb.png", :style => "width:160px;margin:0 8px 2px 0" }
             %p
               %strong
-                Sponsored by IASTA
+                Sponsored by Expected Behavior
               %p
-                %a{:href => 'http://www.iasta.com'}IASTA
-                creates purchasing champions in enterprises around the world by empowering our clients with our strategic sourcing software and services.  Our team of passionate, intelligent, and energetic employees work collaboratively in an agile environment to create powerful software that allows procurement and sourcing teams to fortify their organizations bottom-line results, strengthen their supply bases, manage compliance and drive hard dollar savings.
+                At
+                %a{:href => 'http://expectedbehavior.com'}Expected Behavior
+                , we develop and deploy web applications that do amazing things. That’s because before we program a single line of code, we work collaboratively with our clients to understand the task at hand – not simply in technical terms – but in human ones.
           #nframe.sponsor.span-30
             .img-container
               %img{ :src => "images/nFrame_Logo_small.gif", :style => "width:160px;margin:0 8px 2px 0" }
