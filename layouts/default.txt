@@ -107,16 +107,15 @@ filter:    haml
           on freenode
       #footer.span-90
         #sponsors
-          #iasta.sponsor.span-30
+          #igodigital.sponsor.span-30
             .img-container
               %img{ :src => "images/developertown-logo.png", :style => "width:200px;margin:0 8px 2px 0" }
             %p
               %strong
-                Sponsored by DeveloperTown
+                Sponsored by iGoDigital
               %p
-                At
-                %a{:href => 'http://developertown.com'}DeveloperTown
-                we help you build a better product. We love ideas as much as the technology behind them and thrive on helping first-time visionaries, serial entrepreneurs, or business leaders launch a product into a market. We understand the challenges of an early-stage venture. We know how to turn those risks into benefits. And we've got what it takes to get your product to the market faster, and on a stronger technology foundation.
+                %a{:href => 'http://igodigital.com'}iGoDigital
+                is the leading provider of personalization services that guide smarter retail. Powered by the Customer Intelligence Engine, iGoDigital is the only provider in the market with the technology to observe customer behavior, ask explicit questions, leverage social profiles and analyze “wisdom of the crowds” in order to deliver a truly personalized user experience.
           #nframe.sponsor.span-30
             .img-container
               %img{ :src => "images/nFrame_Logo_small.gif", :style => "width:160px;margin:0 8px 2px 0" }
