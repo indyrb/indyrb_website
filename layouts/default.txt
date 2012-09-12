@@ -109,7 +109,7 @@ filter:    haml
         #sponsors
           #igodigital.sponsor.span-30
             .img-container
-              %img{ :src => "images/developertown-logo.png", :style => "width:200px;margin:0 8px 2px 0" }
+              %img{ :src => "images/igodigital.png", :style => "width:200px;margin:0 8px 2px 0" }
             %p
               %strong
                 Sponsored by iGoDigital
