@@ -109,22 +109,22 @@ filter:    haml
         #sponsors
           #igodigital.sponsor.span-30
             .img-container
-              %img{ :src => "images/igodigital.png", :style => "width:200px;margin:0 8px 2px 0" }
+              %img{ :src => "images/ourhealth_logo.png", :style => "width:200px;margin:0 8px 2px 0" }
             %p
               %strong
-                Sponsored by iGoDigital
+                Sponsored by OurHealth
               %p
-                %a{:href => 'http://igodigital.com'}iGoDigital
-                is the leading provider of personalization services that guide smarter retail. Powered by the Customer Intelligence Engine, iGoDigital is the only provider in the market with the technology to observe customer behavior, ask explicit questions, leverage social profiles and analyze “wisdom of the crowds” in order to deliver a truly personalized user experience.
+                %a{:href => 'http://http://ourhealth.org'}OurHealth
+                understands the value in referral guidance, health intelligence reporting, service excellence, integrated health management solutions, and a shared clinic model. Therefore, all of these differentiators are part of the approach that OurHealth takes to ensure complete client and patient satisfaction.
           #nframe.sponsor.span-30
             .img-container
-              %img{ :src => "images/nFrame_Logo_small.gif", :style => "width:160px;margin:0 8px 2px 0" }
+              %img{ :src => "images/fretless_logo.png", :style => "width:160px;margin:0 8px 2px 0" }
             %p
               %strong
-                Sponsored by nFrame
+                Sponsored by Fretless
               %p
-                %a{:href => "http://www.nframe.com", :target => "_blank"}n|Frame
-                has 15 years of experience providing professional technology infrastructure services to Indianapolis and Indiana organizations of all sizes.  These services include data center services, network management, commercial Internet broadband access, managed IT services, SAN solutions, disaster recovery, cloud computing and server virtualization.
+                %a{:href => "http://www.getfretless.com", :target => "_blank"}Fretless
+                automates businesses with quality software. We're a consultancy in Indianapolis that works with companies like yours to build solutions to automate and streamline your business.
 
     #copy
       &copy;
