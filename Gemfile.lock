@@ -11,7 +11,7 @@ GIT
       rake (>= 0.8.7)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     addressable (2.3.5)
     directory_watcher (1.5.1)

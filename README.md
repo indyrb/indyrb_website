@@ -11,3 +11,7 @@ Change into project directory and run:
 Edit files in /content and run:
 
     bundle exec webby build content
+
+## Deploying
+
+    git push heroku master
