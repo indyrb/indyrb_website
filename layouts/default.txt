@@ -76,6 +76,11 @@ filter:    haml
           Start following at
           %a{ :class => :highlight, :href => "http://www.twitter.com/indyrb" }
             twitter.com/indyrb
+          .div{style: 'display: none'}
+            :plain
+              <a class="twitter-timeline" href="https://twitter.com/indyrb/lists/members" data-widget-id="471610804236595200">Tweets from https://twitter.com/indyrb/lists/members</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 
           %hr
           %h2.bottom
