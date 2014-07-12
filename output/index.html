@@ -72,6 +72,12 @@
           <div class='archive_link'>
             <a href='/archive'>View Older Presentations</a>
           </div>
+          <hr>
+          <div class='hidden' style='display: nonex'>
+            <h2>Tweets from our members</h2>
+            <a class="twitter-timeline" href="https://twitter.com/indyrb/lists/members" data-widget-id="471610804236595200">Tweets from https://twitter.com/indyrb/lists/members</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
         </div>
         <div class='span-26' id='sidebar'>
           <div id='next_meetup'>
@@ -110,10 +116,56 @@
           <a class='highlight' href='http://www.twitter.com/indyrb'>
             twitter.com/indyrb
           </a>
-          <div class='div' style='display: none'>
-            <a class="twitter-timeline" href="https://twitter.com/indyrb/lists/members" data-widget-id="471610804236595200">Tweets from https://twitter.com/indyrb/lists/members</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          </div>
+          <script>
+          // Include the UserVoice JavaScript SDK (only needed once on a page)
+          UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='http://widget.uservoice.com/g0Au8tkqe8WI1Hk4TldBlA.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+          
+          //
+          // UserVoice Javascript SDK developer documentation:
+          // https://www.uservoice.com/o/javascript-sdk
+          //
+          
+          // Set colors
+          UserVoice.push(['set', {
+            accent_color: '#448dd6',
+            trigger_color: 'white',
+            trigger_background_color: 'rgba(46, 49, 51, 0.6)'
+          }]);
+          
+          // Identify the user and pass traits
+          // To enable, replace sample data with actual user traits and uncomment the line
+          UserVoice.push(['identify', {
+            //email:      'john.doe@example.com', // User’s email address
+            //name:       'John Doe', // User’s real name
+            //created_at: 1364406966, // Unix timestamp for the date the user signed up
+            //id:         123, // Optional: Unique id of the user (if set, this should not change)
+            //type:       'Owner', // Optional: segment your users by type
+            //account: {
+            //  id:           123, // Optional: associate multiple users with a single account
+            //  name:         'Acme, Co.', // Account name
+            //  created_at:   1364406966, // Unix timestamp for the date the account was created
+            //  monthly_rate: 9.99, // Decimal; monthly rate of the account
+            //  ltv:          1495.00, // Decimal; lifetime value of the account
+            //  plan:         'Enhanced' // Plan name for the account
+            //}
+          }]);
+          
+          // Add default trigger to the bottom-right corner of the window:
+          UserVoice.push(['addTrigger', { mode: 'smartvote', trigger_position: 'bottom-right' }]);
+          
+          // Or, use your own custom trigger:
+          UserVoice.push(['addTrigger', '#topics', { mode: 'smartvote' }]);
+          
+          // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
+          UserVoice.push(['autoprompt', {}]);
+          </script>
+          <hr>
+          <h2 class='bottom'>
+            Our Topics
+          </h2>
+          <a class='highlight' href='#' id='topics'>
+            Ideas for something you would like to see or even better yet present?
+          </a>
           <hr>
           <h2 class='bottom'>
             Our Mailing List
