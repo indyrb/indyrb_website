@@ -7,8 +7,8 @@ filter:    haml
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
     %title= @page.title
-    %script{:src => "javascripts/jquery-1.2.6.js", :type => "text/javascript"}
-    %script{:src => "javascripts/formatdate.js", :type => "text/javascript"}
+    %script{src: "javascripts/jquery-1.2.6.js", :type => "text/javascript"}
+    %script{src: "javascripts/formatdate.js", :type => "text/javascript"}
     :javascript
       // on page load complete, fire off a jQuery json-p query
       // against Google web search
@@ -37,7 +37,7 @@ filter:    haml
       .box-2
         #header.span-86
           .box-1.top.bottom
-            %img{:alt => "Indyrb.org", :src => "images/indyrb_logo.png"}/
+            %img{:alt => "Indyrb.org", src: "images/indyrb_logo.png"}/
         .span-86
           #tagline A group that meets once a month to chat about Ruby on Rails and the Ruby programming language.
         .span-86
@@ -98,6 +98,17 @@ filter:    haml
 
           %hr
           %h2.bottom
+            Our Flow
+          %a{ target: '__BLANK', href: "https://www.flowdock.com/invitations/94a1bf817fd42ec852f693da30f685ddccb57a7c" }
+            Join our flow
+          %br/
+          Flowdock has graciously given us a platform to ask each other questions, plan future meetups, and just generally have a place for the community to interact between meetups. So use
+          %a{ target: '__BLANK', href: "https://www.flowdock.com/invitations/94a1bf817fd42ec852f693da30f685ddccb57a7c" }
+            the link
+          to join the flow!
+
+          %hr
+          %h2.bottom
             Our IRC
           %a{:href => 'http://webchat.freenode.net/'}Join us
           at
@@ -106,24 +117,43 @@ filter:    haml
           on freenode
       #footer.span-90
         #sponsors
-          #igodigital.sponsor.span-30
+          .sponsor.span-30
             .img-container
-              %img{ :src => "images/ourhealth_logo.png", :style => "width:200px;margin:0 8px 2px 0" }
+              %img{ src: "images/ourhealth_logo.png", style: "width:200px;margin:0 8px 2px 0" }
             %p
               %strong
                 Sponsored by OurHealth
               %p
-                %a{:href => 'http://http://ourhealth.org'}OurHealth
+                %a{:href => 'http://ourhealth.org', target: "_blank"}OurHealth
                 understands the value in referral guidance, health intelligence reporting, service excellence, integrated health management solutions, and a shared clinic model. Therefore, all of these differentiators are part of the approach that OurHealth takes to ensure complete client and patient satisfaction.
-          #nframe.sponsor.span-30
+          .sponsor.span-30
             .img-container
-              %img{ :src => "images/fretless_logo.png", :style => "width:160px;margin:0 8px 2px 0" }
+              %img{ src: "images/fretless_logo.png", style: "width:160px;margin:0 8px 2px 0" }
             %p
               %strong
                 Sponsored by Fretless
               %p
-                %a{:href => "http://www.getfretless.com", :target => "_blank"}Fretless
+                %a{href: "http://www.getfretless.com", target: "_blank"}Fretless
                 automates businesses with quality software. We're a consultancy in Indianapolis that works with companies like yours to build solutions to automate and streamline your business.
+          .span-90
+            .sponsor.span-30
+              .img-container
+                %img{ src: "images/iasta_logo.png", style: "width:160px;margin:0 8px 2px 0" }
+              %p
+                %strong
+                  Sponsored by iasta
+                %p
+                  %a{:href => 'http://iasta.com', target: "_blank"}iasta
+                  is dedicated to empowering sourcing and purchasing professionals. Our blend of acclaimed software and services provides the means to easily and effectively incorporate best-in-class procurement practices on a global scale.
+            .sponsor.span-30
+              .img-container
+                %img{ src: "images/flowdock_logo.png", style: "width:160px;margin:0 8px 2px 0" }
+              %p
+                %strong
+                  Sponsored by Flowdock
+                %p
+                  %a{href: "http://flowdock.com", target: "_blank"}Flowdock
+                  is a team collaboration app for desktop, mobile and web. Work on things that matter, be transparent and solve problems across tools, teams and time zones.
 
     #copy
       &copy;
@@ -133,7 +163,7 @@ filter:    haml
 
     :javascript
       // Include the UserVoice JavaScript SDK (only needed once on a page)
-      UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='http://widget.uservoice.com/g0Au8tkqe8WI1Hk4TldBlA.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+      UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='http://widget.uservoice.com/IU4zEF7NgWuXiiyLGvPA.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
 
       //
       // UserVoice Javascript SDK developer documentation:
