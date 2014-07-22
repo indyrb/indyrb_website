@@ -7,8 +7,8 @@ filter:    haml
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
     %title= @page.title
-    %script{:src => "javascripts/jquery-1.2.6.js", :type => "text/javascript"}
-    %script{:src => "javascripts/formatdate.js", :type => "text/javascript"}
+    %script{src: "javascripts/jquery-1.2.6.js", :type => "text/javascript"}
+    %script{src: "javascripts/formatdate.js", :type => "text/javascript"}
     :javascript
       // on page load complete, fire off a jQuery json-p query
       // against Google web search
@@ -37,7 +37,7 @@ filter:    haml
       .box-2
         #header.span-86
           .box-1.top.bottom
-            %img{:alt => "Indyrb.org", :src => "images/indyrb_logo.png"}/
+            %img{:alt => "Indyrb.org", src: "images/indyrb_logo.png"}/
         .span-86
           #tagline A group that meets once a month to chat about Ruby on Rails and the Ruby programming language.
         .span-86
@@ -47,6 +47,12 @@ filter:    haml
       .box-3
         #center.span-58
           = @content
+          %hr
+          .hidden{style: 'display: nonex'}
+            %h2 Tweets from our members
+            :plain
+              <a class="twitter-timeline" href="https://twitter.com/indyrb/lists/members" data-widget-id="471610804236595200">Tweets from https://twitter.com/indyrb/lists/members</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
         #sidebar.span-26
           #next_meetup
@@ -74,14 +80,32 @@ filter:    haml
           %h2.bottom
             Our Tweets
           Start following at
-          %a{ :class => :highlight, :href => "http://www.twitter.com/indyrb" }
+          %a{ class: :highlight, href: "http://www.twitter.com/indyrb" }
             twitter.com/indyrb
-
+          %hr
+          %h2.bottom
+            Our Topics
+          %a#topics{ class: :highlight, href: "#" }
+            Ideas for something you would like to see or even better yet present?
+          %p
+            We host our topic idea forum at:
+            %a{ target: '__BLANK', href: 'https://indyrb.uservoice.com/forums/20778-indy-rb-meetup-topics'} UserVoice.  Check it out!
           %hr
           %h2.bottom
             Our Mailing List
           %a{ :href => "http://ruby.meetup.com/89/messages/" }
             Start a Topic or View the Archive
+
+          %hr
+          %h2.bottom
+            Our Flow
+          %a{ target: '__BLANK', href: "https://www.flowdock.com/invitations/94a1bf817fd42ec852f693da30f685ddccb57a7c" }
+            Join our flow
+          %br/
+          Flowdock has graciously given us a platform to ask each other questions, plan future meetups, and just generally have a place for the community to interact between meetups. So use
+          %a{ target: '__BLANK', href: "https://www.flowdock.com/invitations/94a1bf817fd42ec852f693da30f685ddccb57a7c" }
+            the link
+          to join the flow!
 
           %hr
           %h2.bottom
@@ -93,24 +117,43 @@ filter:    haml
           on freenode
       #footer.span-90
         #sponsors
-          #igodigital.sponsor.span-30
+          .sponsor.span-30
             .img-container
-              %img{ :src => "images/ourhealth_logo.png", :style => "width:200px;margin:0 8px 2px 0" }
+              %img{ src: "images/ourhealth_logo.png", style: "width:200px;margin:0 8px 2px 0" }
             %p
               %strong
                 Sponsored by OurHealth
               %p
-                %a{:href => 'http://http://ourhealth.org'}OurHealth
+                %a{:href => 'http://ourhealth.org', target: "_blank"}OurHealth
                 understands the value in referral guidance, health intelligence reporting, service excellence, integrated health management solutions, and a shared clinic model. Therefore, all of these differentiators are part of the approach that OurHealth takes to ensure complete client and patient satisfaction.
-          #nframe.sponsor.span-30
+          .sponsor.span-30
             .img-container
-              %img{ :src => "images/fretless_logo.png", :style => "width:160px;margin:0 8px 2px 0" }
+              %img{ src: "images/fretless_logo.png", style: "width:160px;margin:0 8px 2px 0" }
             %p
               %strong
                 Sponsored by Fretless
               %p
-                %a{:href => "http://www.getfretless.com", :target => "_blank"}Fretless
+                %a{href: "http://www.getfretless.com", target: "_blank"}Fretless
                 automates businesses with quality software. We're a consultancy in Indianapolis that works with companies like yours to build solutions to automate and streamline your business.
+          .span-90
+            .sponsor.span-30
+              .img-container
+                %img{ src: "images/iasta_logo.png", style: "width:160px;margin:0 8px 2px 0" }
+              %p
+                %strong
+                  Sponsored by iasta
+                %p
+                  %a{:href => 'http://iasta.com', target: "_blank"}iasta
+                  is dedicated to empowering sourcing and purchasing professionals. Our blend of acclaimed software and services provides the means to easily and effectively incorporate best-in-class procurement practices on a global scale.
+            .sponsor.span-30
+              .img-container
+                %img{ src: "images/flowdock_logo.png", style: "width:160px;margin:0 8px 2px 0" }
+              %p
+                %strong
+                  Sponsored by Flowdock
+                %p
+                  %a{href: "http://flowdock.com", target: "_blank"}Flowdock
+                  is a team collaboration app for desktop, mobile and web. Work on things that matter, be transparent and solve problems across tools, teams and time zones.
 
     #copy
       &copy;
@@ -119,17 +162,44 @@ filter:    haml
 
 
     :javascript
-      var uservoiceJsHost = ("https:" == document.location.protocol) ? "https://uservoice.com" : "http://cdn.uservoice.com";
-      document.write(unescape("%3Cscript src='" + uservoiceJsHost + "/javascripts/widgets/tab.js' type='text/javascript'%3E%3C/script%3E"))
-        :javascript
-      UserVoice.Tab.show({
-        key: 'indyrb',
-        host: 'indyrb.uservoice.com',
-        forum: 'general',
-        alignment: 'left',
-        background_color:'#f00',
-        text_color: 'white',
-        hover_color: '#06C',
-        lang: 'en'
-      })
+      // Include the UserVoice JavaScript SDK (only needed once on a page)
+      UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='http://widget.uservoice.com/IU4zEF7NgWuXiiyLGvPA.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
 
+      //
+      // UserVoice Javascript SDK developer documentation:
+      // https://www.uservoice.com/o/javascript-sdk
+      //
+
+      // Set colors
+      UserVoice.push(['set', {
+        accent_color: '#448dd6',
+        trigger_color: 'white',
+        trigger_background_color: 'rgba(46, 49, 51, 0.6)'
+      }]);
+
+      // Identify the user and pass traits
+      // To enable, replace sample data with actual user traits and uncomment the line
+      UserVoice.push(['identify', {
+        //email:      'john.doe@example.com', // User’s email address
+        //name:       'John Doe', // User’s real name
+        //created_at: 1364406966, // Unix timestamp for the date the user signed up
+        //id:         123, // Optional: Unique id of the user (if set, this should not change)
+        //type:       'Owner', // Optional: segment your users by type
+        //account: {
+        //  id:           123, // Optional: associate multiple users with a single account
+        //  name:         'Acme, Co.', // Account name
+        //  created_at:   1364406966, // Unix timestamp for the date the account was created
+        //  monthly_rate: 9.99, // Decimal; monthly rate of the account
+        //  ltv:          1495.00, // Decimal; lifetime value of the account
+        //  plan:         'Enhanced' // Plan name for the account
+        //}
+      }]);
+
+      // Add default trigger to the bottom-right corner of the window:
+      UserVoice.push(['addTrigger', { mode: 'smartvote', trigger_position: 'bottom-right' }]);
+
+      // Or, use your own custom trigger:
+      UserVoice.push(['addTrigger', '#topics', { mode: 'smartvote' }]);
+
+      // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
+      UserVoice.push(['autoprompt', {}]);
